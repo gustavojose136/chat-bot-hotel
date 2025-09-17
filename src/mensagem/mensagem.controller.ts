@@ -22,6 +22,7 @@ export class MensagemController {
   // Enviar imagem gerada a partir de uma URL externa
   @Post('enviar-via-url')
   async sendImageFromUrl(@Body() body: { jid: string; url: string }) {
+    console.log(body);
     await this.mensagemService.generateAndSendImageFromUrl(body.jid, body.url);
     return { message: 'Informe operacaional att' };
   }

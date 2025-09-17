@@ -15,7 +15,7 @@ export class MensagemService {
 
     await page.setContent(htmlContent, { waitUntil: 'networkidle0' });
 
-    const imagePath = path.resolve(__dirname, '../../output_html.png');
+    const imagePath = path.resolve(__dirname, '../../output_html.png') as `${string}.png`;
     await page.screenshot({ path: imagePath, fullPage: true });
 
     await browser.close();
@@ -32,7 +32,7 @@ export class MensagemService {
     // Espera 1 minuto para a pag carregar
     await setTimeout(60000);
 
-    const imagePath = path.resolve(__dirname, '../../output_file.png');
+    const imagePath = path.resolve(__dirname, '../../output_file.png') as `${string}.png`;
     await page.screenshot({ path: imagePath, fullPage: true });
 
     await browser.close();
@@ -42,14 +42,16 @@ export class MensagemService {
   private async generateImageFromUrl(url: string): Promise<string> {
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
+    console.log(url);
 
     await page.setViewport({ width: 1920, height: 1080 });
 
     await page.goto(url, { waitUntil: 'networkidle0' });
+    console.log('url');
 
-    await setTimeout(60000);
+    //await setTimeout(60000);
 
-    const imagePath = path.resolve(__dirname, '../../output_url.png');
+    const imagePath = path.resolve(__dirname, '../../output_url.png') as `${string}.png`;
     await page.screenshot({ path: imagePath, fullPage: true });
 
     await browser.close();
@@ -68,6 +70,7 @@ export class MensagemService {
 
   async generateAndSendImageFromUrl(jid: string, url: string) {
     const imagePath = await this.generateImageFromUrl(url);
+    console.log(imagePath);
     await this.whatsAppService.sendImage(jid, imagePath, 'Informe opreacional att');
   }
 

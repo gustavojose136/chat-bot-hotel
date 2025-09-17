@@ -32,6 +32,31 @@
 $ npm install
 ```
 
+## Configuração de Variáveis de Ambiente
+
+Para que a aplicação funcione corretamente, você precisa configurar as seguintes variáveis de ambiente. Crie um arquivo `.env` na raiz do projeto com o seguinte conteúdo:
+
+```env
+# Configurações do JWT
+JWT_SECRET=seu_jwt_secret_super_secreto_aqui_2024
+JWT_EXPIRES_IN=1h
+
+# Configurações do Servidor
+PORT=3000
+
+# Configurações do Banco de Dados SQL Server
+DB_HOST=localhost
+DB_PORT=1433
+DB_USERNAME=sa
+DB_PASSWORD=sua_senha_aqui
+DB_NAME=seu_banco_de_dados
+```
+
+**Importante**: 
+- Se você não criar o arquivo `.env`, a aplicação usará valores padrão para as configurações do JWT e banco de dados
+- Para produção, é **obrigatório** configurar suas próprias variáveis de ambiente
+- Certifique-se de que o SQL Server esteja rodando e acessível com as credenciais configuradas
+
 ## Compile and run the project
 
 ```bash

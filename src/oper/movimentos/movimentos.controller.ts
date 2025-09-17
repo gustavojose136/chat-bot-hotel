@@ -1,9 +1,9 @@
 import { Body, Controller, HttpStatus, Post, Req, Res, UseGuards } from '@nestjs/common';
-import { AuthEmpresasService } from 'src/auth/auth-empresas/auth-empresas.service';
+import { AuthEmpresasService } from '../../auth/auth-empresas/auth-empresas.service';
 import { MovimentosService } from './movimentos.service';
-import { AuthService } from 'src/auth/auth.service';
-import { RateLimitGuard, RateLimitGuardPlaca } from 'src/auth/rate-limit/rate-limit.guard';
-import { JwtAuthGuard } from 'src/auth/jwt/jwt-auth.guard';
+import { AuthService } from '../../auth/auth.service';
+import { RateLimitGuard, RateLimitGuardPlaca } from '../../auth/rate-limit/rate-limit.guard';
+import { JwtAuthGuard } from '../../auth/jwt/jwt-auth.guard';
 import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { UltMovDto, UltMovResponseDto } from './movimentos.dto';
 import { Request, Response } from 'express';

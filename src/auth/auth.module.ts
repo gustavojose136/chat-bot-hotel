@@ -4,7 +4,7 @@ import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { JwtStrategy } from './jwt/jwt-strategy'; 
 import { ConfigModule, ConfigService } from "@nestjs/config";
-import { AuthEmpresasEntity } from 'src/db/entities/empresas/auth-empresas.entity';
+import { AuthEmpresasEntity } from '../db/entities/empresas/auth-empresas.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthEmpresasModule } from './auth-empresas/auth-empresas.module';
 
@@ -14,9 +14,9 @@ import { AuthEmpresasModule } from './auth-empresas/auth-empresas.module';
       imports: [ConfigModule], 
       inject: [ConfigService], 
       useFactory: async (configService: ConfigService) => ({
-        secret: configService.get<string>('JWT_SECRET'),
+        secret: configService.get<string>('JWT_SECRET') || 'jwt_secret_default_2024',
         signOptions: {
-          expiresIn: configService.get<string>('JWT_EXPIRES_IN'),
+          expiresIn: configService.get<string>('JWT_EXPIRES_IN') || '1h',
         },
       }),
     }),

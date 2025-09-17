@@ -10,13 +10,13 @@ import { MensagemModule } from './mensagem/mensagem.module';
 
 @Module({
   imports: [
-    AuthModule, 
-    DbModule, 
+    //AuthModule, 
+    //DbModule, 
     ConfigModule.forRoot({ 
       isGlobal: true 
     }), 
-    MovimentosModule, 
-    AuthEmpresasModule, 
+    //MovimentosModule, 
+   // AuthEmpresasModule, 
     WhatsAppModule,
     TesteModule,
     MensagemModule,],

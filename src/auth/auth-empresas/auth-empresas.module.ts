@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AuthEmpresasService } from './auth-empresas.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AuthAbrangenciaEntity, AuthEmpresasEntity, AuthPlacaTransEntity } from 'src/db/entities/empresas/auth-empresas.entity'; 
+import { AuthAbrangenciaEntity, AuthEmpresasEntity, AuthPlacaTransEntity } from '../../db/entities/empresas/auth-empresas.entity'; 
 
 @Module({
   providers: [AuthEmpresasService],

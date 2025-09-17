@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { UltMovEntity } from 'src/db/entities/oper/movimento.entity';
+import { UltMovEntity } from '../../db/entities/oper/movimento.entity';
 import { Repository } from 'typeorm'
 
 @Injectable()
